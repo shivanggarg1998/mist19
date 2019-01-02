@@ -26,6 +26,7 @@ passport.use(
                 // already have this user
                 console.log('user is: ', currentUser);
                 done(null, currentUser);
+                currentUser.redirect('/questionpage');
             } else {
                 // if not, create user in our db
                 new User({
