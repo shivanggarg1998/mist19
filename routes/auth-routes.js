@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const passport = require('passport');
+var question = require('../models/question-model.js');
 
-// auth login
+
 router.get('/login', (req, res) => {
     res.render('login', { user: req.user });
 });
@@ -21,7 +22,10 @@ router.get('/google', passport.authenticate('google', {
 // hand control to passport to use code to grab profile info
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
     // res.send(req.user);
+    console.log(req.user);
     res.redirect('/question-page');
 });
+
+
 
 module.exports = router;

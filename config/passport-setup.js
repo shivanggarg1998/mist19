@@ -24,9 +24,11 @@ passport.use(
         User.findOne({googleId: profile.id}).then((currentUser) => {
             if(currentUser){
                 // already have this user
+                // console.log('token start');
+                // console.log(accessToken);
+                // console.log('token end');
                 console.log('user is: ', currentUser);
                 done(null, currentUser);
-                currentUser.redirect('/questionpage');
             } else {
                 // if not, create user in our db
                 new User({

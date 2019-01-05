@@ -6,15 +6,18 @@ import {RouterModule, Routes} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { QuestionPageComponent } from './question-page/question-page.component';
-
+import { AdminaddquestionComponent } from './adminaddquestion/adminaddquestion.component';
+import { AdminService} from './admin.service';
 const appRoutes: Routes = [
-  { path:'question-page', component : QuestionPageComponent }
+  { path:'question-page', component : QuestionPageComponent },
+  { path: 'admin/addQuestion', component: AdminaddquestionComponent}
   ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    QuestionPageComponent
+    QuestionPageComponent,
+    AdminaddquestionComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

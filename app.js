@@ -2,6 +2,7 @@ const express = require('express');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const authRoutes = require('./routes/auth-routes');
+const bodyParser = require('body-parser');
 const passportSetup = require('./config/passport-setup');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
@@ -17,6 +18,8 @@ app.use(cookieSession({
     keys: [keys.session.cookieKey]
 }));
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 // initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
@@ -32,9 +35,17 @@ app.use('/auth', authRoutes);
 
 // create home route
 app.get('/', (req, res) => {
-    res.render('login', { user: req.user });
+    if(req.user){
+        // console.log(accessToken);
+        res.redirect('/question-page');
+        // res.send('hi');
+    }
+    else{
+        res.render('login', { user: req.user });
+    }
 });
 app.use(express.static(path.join(__dirname, 'dist')));
+require('./routes/routers.js')(app);
 app.listen(3000, () => {
     console.log('app now listening for requests on port 3000');
 });
