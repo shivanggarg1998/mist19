@@ -23,6 +23,13 @@ export class AdminService {
     .map(res => res.json())
   }
 
+  fetchPlayers() {
+    let headers = new Headers()
+    headers.append('Content-Type','application/json')
+    return this.http.get('/scoreboard',{ headers : headers })
+    .map(res => res.json())
+  }
+
   submission(ans){
     let headers = new Headers()
     headers.append('Content-Type','application/json')

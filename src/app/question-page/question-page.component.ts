@@ -45,15 +45,17 @@ export class QuestionPageComponent implements OnInit {
     this.adminService.submission(form).subscribe(info=>{
       if(info.success){
         console.log('success');
+        window.location.reload();
       }
       else{
         console.log('fail');
       }
+      
     },
     err => {
       console.log(err)
       return false
     })
   }
-  
+
 }

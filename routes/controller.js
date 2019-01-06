@@ -53,6 +53,32 @@ exports.questionPage = function(req,res){
     })
 }
 
+exports.playerList = function(req, res) {
+    userplayer.find({})
+    .sort(
+        {current_question:-1,submission_time: -1}
+    )
+    .then(playerlist=> {
+      var userplayerlist = []
+      for(var i=0;i<playerlist.length;i++){
+        var playeruser = {
+            username: playerlist[i].username,
+            googleId: playerlist[i].googleId,
+            thumbnail: playerlist[i].thumbnail,
+            current_question: playerlist[i].current_question,
+            rank:i+1
+        }
+        userplayerlist.push(playeruser)
+      }
+      res.json(userplayerlist)
+  
+    }).catch(err=>{
+      console.log(err)
+      res.send("unable to fetch players list")
+    })
+  }
+  
+
 exports.Submit = function(req,res){
     userplayer
     .findById(req.user._id)
@@ -63,7 +89,8 @@ exports.Submit = function(req,res){
                     player.current_question++;
                     player.activity.push({timestamp:Date.now()})
                     player.save()
-                    res.redirect('/question-page');
+                    // res.redirect('/question-page');
+                    res.json({'success':true, 'msg':'Correct Answer'})
                 }
                 else{
                     res.json({'success':false, 'msg':'Incorrect Answer'})

@@ -1,0 +1,25 @@
+<h1>Your Rank: {{playerRank}}</h1>
+<div *ngIf="playerList" class="row">
+  <div class="bootstrapTables">
+    <div class="col-sm-12 col-xs-12 table-responsive">
+      <table class="hover-table table table-hover">
+        <thead>
+          <tr>
+            <td ><strong>Rank</strong></td>
+            <td ><strong>Avatar</strong></td>
+            <td ><strong>Name</strong></td>
+            <td ><strong>Current Question</strong></td>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let player of playerList;">
+              <td>{{player.rank}}</td>
+              <td><img src="{{player.thumbnail}}" alt="User Profile"  width="40" height="40" hspace="5"> </td>
+              <td>{{player.username}}</td>
+              <td >{{player.current_question}}</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

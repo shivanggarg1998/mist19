@@ -13,7 +13,8 @@ module.exports = function(app) {
     app.route('/submit')
         .post(isLoggedIn,controller.Submit)
 
-    
+    app.route('/scoreboard')
+        .get(isLoggedIn,controller.playerList);
 
     };
     function isLoggedIn(req, res, next) {

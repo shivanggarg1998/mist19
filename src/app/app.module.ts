@@ -8,16 +8,19 @@ import { AppComponent } from './app.component';
 import { QuestionPageComponent } from './question-page/question-page.component';
 import { AdminaddquestionComponent } from './adminaddquestion/adminaddquestion.component';
 import { AdminService} from './admin.service';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 const appRoutes: Routes = [
   { path:'question-page', component : QuestionPageComponent },
-  { path: 'admin/addQuestion', component: AdminaddquestionComponent}
+  { path: 'admin/addQuestion', component: AdminaddquestionComponent},
+  { path: 'leaderboard', component : LeaderboardComponent}
   ]
 
 @NgModule({
   declarations: [
     AppComponent,
     QuestionPageComponent,
-    AdminaddquestionComponent
+    AdminaddquestionComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,
