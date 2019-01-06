@@ -1,3 +1,17 @@
-<p>
-  question-page works!
+<p>hi, 
+  {{player?.username}}
 </p>
+<p> Question no. 
+  {{question?.question_number}}
+</p>
+<p>
+  {{question?.question_body}}
+</p>
+
+<img src = "{{question?.media_link}}" alt="Question Image"/>
+<form class="form-inline" [formGroup]="ansForm" novalidate (ngSubmit)="ansSubmission(ansForm.value)" style="margin-bottom:-25px;">
+  <div class="form-group">
+    <input class="form-control" [ngModel]="answer" type="string" formControlName="answer" value='' placeholder="answer"/>
+  </div>
+  <button type="submit" class="btn" [disabled]="!ansForm.valid"><b>submit</b></button>
+</form>

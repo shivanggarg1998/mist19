@@ -1,20 +1,18 @@
 module.exports = function(app) {
     var controller = require('./controller.js')
     
-    //============================================================================
-    //Admin routes ===============================================================
-    //============================================================================
-    
-    
-    
+    app.route('/questionpage')
+        .get(isLoggedIn,controller.questionPage);
+
+    app.route('/userdetail')
+        .get(isLoggedIn,controller.userDetail);
 
     app.route('/admin/addQuestions')
         .post(isLoggedIn, isAdmin,controller.adminaddquestion);
     
-    // app.route('/admin/modifyCompany/:id')
-    //     .post(isLoggedIn, isAdmin,controller.modifyCompany);
-    
-    
+    app.route('/submit')
+        .post(isLoggedIn,controller.Submit)
+
     
 
     };

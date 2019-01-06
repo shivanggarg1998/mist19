@@ -36,7 +36,7 @@ app.use('/auth', authRoutes);
 // create home route
 app.get('/', (req, res) => {
     if(req.user){
-        // console.log(accessToken);
+        // console.log(req.user.current_question);
         res.redirect('/question-page');
         // res.send('hi');
     }
