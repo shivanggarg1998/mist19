@@ -59,10 +59,12 @@ exports.playerList = function(req, res) {
       playerlist.sort(     function(a,b){
           if(b.current_question!=a.current_question)
         return  b.current_question - a.current_question;
-         return new Date(a.submission_time) - new Date(b.submission_time);
+         return new Date(a.submission_time.toString()) - new Date(b.submission_time.toString());
     });
       for(var i=0;i<playerlist.length;i++){
+        //   console.log(playerlist[i].submission_time.toString());
         var playeruser = {
+            
             username: playerlist[i].username,
             googleId: playerlist[i].googleId,
             thumbnail: playerlist[i].thumbnail,
@@ -88,6 +90,7 @@ exports.Submit = function(req,res){
             question.findOne({question_number: req.user.current_question}).then((quesDetail)=>{
                 if(req.body.answer==quesDetail.answer){
                     player.current_question++;
+                    player.submission_time=Date.now()
                     player.activity.push({timestamp:Date.now()})
                     player.save()
                     // res.redirect('/question-page');

@@ -6,7 +6,7 @@ const userSchema = new Schema({
     googleId: String,
     thumbnail: String,
     current_question: { type: Number, default: 1 },
-    submission_time: { type: Date, default: Date.now },
+    submission_time: { type: Date,default: Date.now() },
     isNotBan: { type: Boolean, default: true },
     isAdmin: { type: Boolean, default: false },
     activity: [{timestamp:{

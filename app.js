@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const path = require('path');
 const app = express();
-var mustacheExpress = require('mustache-express');
+var port = process.env.PORT || 3000;
 // set view engine
 app.set('view engine', 'ejs');
 
@@ -32,8 +32,7 @@ mongoose.connect(keys.mongodb.dbURI, () => {
 
 // set up routes
 app.use('/auth', authRoutes);
-app.engine('html', mustacheExpress());
-app.set('view engine', 'mustache');
+
 // create home route
 app.get('/', (req, res) => {
     if(req.user){
@@ -47,7 +46,7 @@ app.get('/', (req, res) => {
 });
 app.use(express.static(path.join(__dirname, 'dist')));
 require('./routes/routers.js')(app);
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('app now listening for requests on port 3000');
 });
 app.get('*', (req, res) => {
