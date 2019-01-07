@@ -27,7 +27,8 @@ export class LeaderboardComponent implements OnInit {
   ngOnInit() {
     this.adminService.fetchUser().subscribe(Player => {
       this.player = Player;
-      this.playerId = Player.id;
+      // console.log(Player);
+      this.playerId = Player.googleId;
     },
     err => {
       console.log(err);
@@ -39,11 +40,13 @@ export class LeaderboardComponent implements OnInit {
         this.adminService.fetchPlayers().subscribe(playerList => {
           this.playerList = playerList
           for(var i=0;i<playerList.length;i++){
-            if(playerList[i].id==this.playerId){
+            // console.log(playerList[i].googleId);
+            // console.log(this.playerId);
+            if(playerList[i].googleId==this.playerId){
               this.playerRank=playerList[i].rank;
             }
           }
-          console.log(playerList)
+          // console.log(playerList)
 
         },
         err => {

@@ -13,13 +13,19 @@ export class QuestionPageComponent implements OnInit {
   player: any;
   question: any;
   ansForm : FormGroup;
+  Math: Math;
+  alertstring: any;
+  alertlength: number;
+  
   constructor(
+    
     private adminService: AdminService,
     private router: Router,
     private formBuilder : FormBuilder
   ) { }
-
+    
   ngOnInit() {
+    
     this.adminService.fetchUser().subscribe(Player => {
       this.player = Player;
     },
@@ -41,6 +47,9 @@ export class QuestionPageComponent implements OnInit {
 
   }
   ansSubmission(form: any){
+    const alertmessages:string[]= new Array("Tumse na ho payega","Error 404 Brain not found","My Granny can do better","Not even close") 
+    this.alertlength= Math.floor(Math.random()*alertmessages.length);
+    this.alertstring=alertmessages[this.alertlength];
     this.ansForm.reset();
     this.adminService.submission(form).subscribe(info=>{
       if(info.success){
@@ -48,6 +57,7 @@ export class QuestionPageComponent implements OnInit {
         window.location.reload();
       }
       else{
+        this.myFunction();
         console.log('fail');
       }
       
@@ -57,5 +67,9 @@ export class QuestionPageComponent implements OnInit {
       return false
     })
   }
-
+  myFunction() {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
 }

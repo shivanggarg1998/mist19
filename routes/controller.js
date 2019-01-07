@@ -40,7 +40,7 @@ exports.userDetail = function(req, res) {
 
 exports.questionPage = function(req,res){
     question.findOne({question_number: req.user.current_question}).then((quesDetail)=>{
-        console.log(quesDetail);
+        // console.log(quesDetail);
         var details = {
             question_body: quesDetail.question_body,
             media_link: quesDetail.media_link,
@@ -55,11 +55,14 @@ exports.questionPage = function(req,res){
 
 exports.playerList = function(req, res) {
     userplayer.find({})
-    .sort(
-        {current_question:-1,submission_time: -1}
-    )
     .then(playerlist=> {
+
       var userplayerlist = []
+      playerlist.sort(     function(a,b){
+          if(b.current_question!=a.current_question)
+        return  b.current_question - a.current_question;
+         return new Date(a.submission_time) - new Date(b.submission_time);
+    });
       for(var i=0;i<playerlist.length;i++){
         var playeruser = {
             username: playerlist[i].username,

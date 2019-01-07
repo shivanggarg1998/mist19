@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const path = require('path');
 const app = express();
-
+var mustacheExpress = require('mustache-express');
 // set view engine
 app.set('view engine', 'ejs');
 
@@ -32,7 +32,8 @@ mongoose.connect(keys.mongodb.dbURI, () => {
 
 // set up routes
 app.use('/auth', authRoutes);
-
+app.engine('html', mustacheExpress());
+app.set('view engine', 'mustache');
 // create home route
 app.get('/', (req, res) => {
     if(req.user){

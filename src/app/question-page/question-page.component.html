@@ -1,13 +1,14 @@
 <p>hi, 
   {{player?.username}}
 </p>
+<a href="/leaderboard">Leaderboard</a>
 <p> Question no. 
   {{question?.question_number}}
 </p>
 <p>
   {{question?.question_body}}
 </p>
-
+<div id="snackbar">{{alertstring}}</div>
 <img src = "{{question?.media_link}}" alt="Question Image"/>
 <form class="form-inline" [formGroup]="ansForm" novalidate (ngSubmit)="ansSubmission(ansForm.value)" style="margin-bottom:-25px;">
   <div class="form-group">
