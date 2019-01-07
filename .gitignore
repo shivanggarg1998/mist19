@@ -7,7 +7,7 @@
 config/keys.js
 # dependencies
 /node_modules
-
+src/assets/images
 # IDEs and editors
 /.idea
 .project

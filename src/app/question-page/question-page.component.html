@@ -9,7 +9,7 @@
   {{question?.question_body}}
 </p>
 <div id="snackbar">{{alertstring}}</div>
-<img src = "{{question?.media_link}}" alt="Question Image"/>
+<img src = "../assets/images/image{{question?.question_number}}.png" alt="Question Image"/>
 <form class="form-inline" [formGroup]="ansForm" novalidate (ngSubmit)="ansSubmission(ansForm.value)" style="margin-bottom:-25px;">
   <div class="form-group">
     <input class="form-control" [ngModel]="answer" type="string" formControlName="answer" value='' placeholder="answer"/>

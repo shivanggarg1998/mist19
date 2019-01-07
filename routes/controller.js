@@ -6,7 +6,6 @@ mongoose.Promise = global.Promise;
 exports.adminaddquestion = function(req,res){
     var newQuestion = new question({
         question_body: req.body.question_body,
-        media_link: req.body.media_link,
         answer: req.body.answer,
         question_number: req.body.question_number
     })
@@ -43,7 +42,6 @@ exports.questionPage = function(req,res){
         // console.log(quesDetail);
         var details = {
             question_body: quesDetail.question_body,
-            media_link: quesDetail.media_link,
             question_number: quesDetail.question_number
         }
         res.json(details)

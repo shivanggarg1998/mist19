@@ -26,7 +26,6 @@ export class AdminaddquestionComponent implements OnInit {
   onQuestionSubmit(){
     const questions = {
       question_body: this.question_body,
-    media_link: this.media_link,
     answer: this.answer,
     question_number: this.question_number
       
