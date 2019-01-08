@@ -4,7 +4,7 @@
 /dist
 /tmp
 /out-tsc
-config/keys.js
+# config/keys.js
 # dependencies
 /node_modules
 # IDEs and editors
