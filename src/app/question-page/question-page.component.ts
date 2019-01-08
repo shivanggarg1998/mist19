@@ -16,7 +16,7 @@ export class QuestionPageComponent implements OnInit {
   Math: Math;
   alertstring: any;
   alertlength: number;
-  
+  answer: any;
   constructor(
     
     private adminService: AdminService,
