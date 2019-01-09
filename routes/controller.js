@@ -25,6 +25,8 @@ exports.userDetail = function(req, res) {
         username: req.user.username,
         googleId: req.user.googleId,
         thumbnail: req.user.thumbnail,
+        isAdmin: req.user.isAdmin,
+        isNotBan: req.user.isNotBan,
         current_question: req.user.current_question,
         submission_time: req.user.submission_time,
         activity: req.user.activity

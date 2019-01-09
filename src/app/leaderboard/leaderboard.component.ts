@@ -35,8 +35,8 @@ export class LeaderboardComponent implements OnInit {
       return false;
     });
 
-    this.subscription = Observable.timer(0, 120000)
-      .subscribe(() => {
+    // this.subscription = Observable.timer(0, 120000)
+    //   .subscribe(() => {
         this.adminService.fetchPlayers().subscribe(playerList => {
           this.playerList = playerList
           for(var i=0;i<playerList.length;i++){
@@ -53,7 +53,7 @@ export class LeaderboardComponent implements OnInit {
           console.log(err)
           return false
         })
-      })
+      // })
 
 
   }

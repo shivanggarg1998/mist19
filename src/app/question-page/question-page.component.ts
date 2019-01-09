@@ -28,6 +28,8 @@ export class QuestionPageComponent implements OnInit {
     
     this.adminService.fetchUser().subscribe(Player => {
       this.player = Player;
+      if(Player.isNotBan==false){
+        this.router.navigate(['/']);}
     },
     err => {
       console.log(err);
@@ -47,8 +49,9 @@ export class QuestionPageComponent implements OnInit {
 
   }
   ansSubmission(form: any){
-    const alertmessages:string[]= new Array("Tumse na ho payega","Error 404 Brain not found","My Granny can do better","Not even close") 
-    this.alertlength= Math.floor(Math.random()*alertmessages.length);
+    const alertmessages:string[]= new Array("Tumse na ho payega","Error 404 Brain not found","My Granny can do better","Not even close","Nothing") 
+    this.alertlength= Math.abs(Math.floor(Math.random()*(alertmessages.length-1)))%alertmessages.length;
+    console.log(this.alertlength);
     this.alertstring=alertmessages[this.alertlength];
     this.ansForm.reset();
     this.adminService.submission(form).subscribe(info=>{

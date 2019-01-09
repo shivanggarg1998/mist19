@@ -9,7 +9,6 @@ import {Http, Response, RequestOptions, Headers} from '@angular/http';
   styleUrls: ['./adminaddquestion.component.css']
 })
 export class AdminaddquestionComponent implements OnInit {
-
   question_body: String;
     media_link: String;
     answer: String;
@@ -21,6 +20,16 @@ export class AdminaddquestionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.adminService.fetchUser().subscribe(Player => {
+      console.log(Player.isAdmin);
+      if(Player.isAdmin==false){
+        this.router.navigate(['/']);
+      }
+    },
+    err => {
+      console.log(err);
+      return false;
+    });
   }
 
   onQuestionSubmit(){
