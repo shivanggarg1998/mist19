@@ -35,17 +35,18 @@ export class LeaderboardComponent implements OnInit {
       return false;
     });
 
-    // this.subscription = Observable.timer(0, 120000)
-    //   .subscribe(() => {
+    this.subscription = Observable.timer(0, 120000)
+      .subscribe(() => {
         this.adminService.fetchPlayers().subscribe(playerList => {
-          this.playerList = playerList
-          for(var i=0;i<playerList.length;i++){
-            // console.log(playerList[i].googleId);
-            // console.log(this.playerId);
-            if(playerList[i].googleId==this.playerId){
-              this.playerRank=playerList[i].rank;
-            }
-          }
+          this.playerList = playerList.userplayerlist;
+          this.playerRank= playerList.current_rank;
+          // for(var i=0;i<playerList.length;i++){
+          //   // console.log(playerList[i].googleId);
+          //   // console.log(this.playerId);
+          //   if(playerList[i].googleId==this.playerId){
+          //     this.playerRank=playerList[i].rank;
+          //   }
+          // }
           // console.log(playerList)
 
         },
@@ -53,7 +54,7 @@ export class LeaderboardComponent implements OnInit {
           console.log(err)
           return false
         })
-      // })
+      })
 
 
   }

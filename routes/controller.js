@@ -63,8 +63,12 @@ exports.playerList = function(req, res) {
         return  b.current_question - a.current_question;
          return new Date(a.submission_time.toString()) - new Date(b.submission_time.toString());
     });
+    var current_rank;
       for(var i=0;i<playerlist.length;i++){
         //   console.log(playerlist[i].submission_time.toString());
+        if(playerlist[i].googleId==req.user.googleId){
+            current_rank=i+1;
+        }
         var playeruser = {
             
             username: playerlist[i].username,
@@ -75,7 +79,8 @@ exports.playerList = function(req, res) {
         }
         userplayerlist.push(playeruser)
       }
-      res.json(userplayerlist)
+    //   console.log(current_rank);
+      res.json({userplayerlist,current_rank})
   
     }).catch(err=>{
       console.log(err)
