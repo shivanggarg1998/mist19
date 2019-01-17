@@ -9,7 +9,15 @@ import {Subscription} from "rxjs";
 @Component({
   selector: 'app-leaderboard',
   templateUrl: './leaderboard.component.html',
-  styleUrls: ['./leaderboard.component.css']
+  styleUrls: ['./leaderboard.component.css',
+  // "../../assets/css/icons/icomoon/styles.css",
+  // "../../assets/css/bootstrap.min.css",
+  // "../../assets/css/bootstrap_limitless.min.css",
+  // "../../assets/css/layout.min.css",
+  // "../../assets/css/components.min.css",
+  // "../../assets/css/colors.min.css"
+], 
+  styles: [':host { width: 100%; }']
 })
 export class LeaderboardComponent implements OnInit {
   player: any;

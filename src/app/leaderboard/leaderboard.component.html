@@ -1,8 +1,8 @@
-<h1>Your Rank: {{playerRank}}</h1>
+<!-- <h1>Your Rank: {{playerRank}}</h1>
 <div *ngIf="playerList" class="row">
   <div class="bootstrapTables">
     <div class="col-sm-12 col-xs-12 table-responsive">
-      <table class="hover-table table table-hover">
+      <table class="hover-table table table-hover" style="width: 100%">
         <thead>
           <tr>
             <td ><strong>Rank</strong></td>
@@ -22,4 +22,42 @@
       </table>
     </div>
   </div>
-</div>
+</div> -->
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<div class="card">
+    <div class="card-header header-elements-inline">
+      <h1 class="card-title">Leaderboard</h1>
+    </div>
+
+    <div class="card-body">
+        <h3>Your Rank: {{playerRank}}</h3>
+    </div>
+    <div *ngIf="playerList" class="row">
+    <div class="table-responsive">
+      <table class="table table-striped" style="width: 100%">
+        <thead>
+          <tr>
+            <th style="width: 5%"></th>
+            <th style="width: 12%"><strong>Rank</strong></th>
+            <th style="width: 17%"><strong>Avatar</strong></th>
+            <th style="width: 22%"><strong>Name</strong></th>
+            <th style="width: 10%"><strong>Current Question</strong></th>
+            <th style="width: 0.5%">      </th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let player of playerList;">
+              <td></td>
+              <td>{{player.rank}}</td>
+              <td><img src="{{player.thumbnail}}" alt="User Profile"  width="40" height="40" hspace="5"> </td>
+              <td>{{player.username}}</td>
+              <td >{{player.current_question}}</td>
+            </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
