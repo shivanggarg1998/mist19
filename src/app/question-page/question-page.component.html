@@ -1,4 +1,7 @@
-<p> Question no. 
+<head>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+<!-- <p> Question no. 
   {{question?.question_number}}
 </p>
 <p>
@@ -11,4 +14,46 @@
     <input class="form-control" [ngModel]="answer" type="string" formControlName="answer" value='' placeholder="answer"/>
   </div>
   <button type="submit" class="btn" [disabled]="!ansForm.valid"><b>submit</b></button>
-</form>
+</form> -->
+<body>
+  <div class="row h-100">
+      <div class="col-md-5 col-sm-11 col-lg-5 ">
+
+          <!-- Linked image -->
+          <div class="card">
+              <img class="card-img-top img-thumbnail img-responsive" src="../assets/images/image{{question?.question_number}}.png" alt="">
+        
+            <div class="card-body">
+              <h5 class="card-title">Question no. {{question?.question_number}}</h5>
+              <p class="card-text">{{question?.question_body}}</p>
+              <form  [formGroup]="ansForm" novalidate (ngSubmit)="ansSubmission(ansForm.value)" >
+                  <div class="form-group">
+                    <input class="form-control" [ngModel]="answer" type="string" formControlName="answer" value='' style="width: 90%;" placeholder="Enter Your Answer"/>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center">
+                  <button type="submit" class="btn bg-blue ml-3" [disabled]="!ansForm.valid">Submit<i class="icon-paperplane ml-2"></i></button>
+                </div>
+                </form>  
+                <br>
+            </div>
+            
+          </div>
+          
+          <!-- /linked image 8390135990 --> 
+          <!-- <form action="#">
+            <div class="form-group">
+              <label>Answer</label>
+              <input type="text" class="form-control" placeholder="Enter Your Answer">
+            </div>
+      
+            <div class="d-flex justify-content-start align-items-center">
+              <button type="submit" class="btn btn-light">Cancel</button>
+              <button type="submit" class="btn bg-blue ml-3">Submit <i class="icon-paperplane ml-2"></i></button>
+            </div>
+          </form> -->
+          
+        </div>
+  </div>
+  
+  <div id="snackbar">{{alertstring}}</div>
+</body>

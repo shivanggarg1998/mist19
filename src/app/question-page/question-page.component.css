@@ -13,7 +13,7 @@
     bottom: 30px;
     font-size: 17px;
   }
-  
+  :host { width: 100%; }
   #snackbar.show {
     visibility: visible;
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;

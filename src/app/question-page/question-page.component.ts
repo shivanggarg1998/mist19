@@ -7,7 +7,13 @@ import {Http, Response, RequestOptions, Headers} from '@angular/http';
 @Component({
   selector: 'app-question-page',
   templateUrl: './question-page.component.html',
-  styleUrls: ['./question-page.component.css']
+  styleUrls: ['./question-page.component.css',
+  "../../assets/css/icons/icomoon/styles.css",
+  "../../assets/css/bootstrap.min.css",
+  "../../assets/css/bootstrap_limitless.min.css",
+  "../../assets/css/layout.min.css",
+  "../../assets/css/components.min.css",
+  "../../assets/css/colors.min.css"]
 })
 export class QuestionPageComponent implements OnInit {
   player: any;
