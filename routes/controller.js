@@ -53,6 +53,38 @@ exports.questionPage = function(req,res){
     })
 }
 
+exports.topFifteen = function(req,res){
+    userplayer.find({})
+    .then(playerlist=> {
+
+      var userplayerlist = []
+      playerlist.sort(     function(a,b){
+          if(b.current_question!=a.current_question)
+        return  b.current_question - a.current_question;
+         return new Date(a.submission_time.toString()) - new Date(b.submission_time.toString());
+    });
+    var it = Math.min(playerlist.length,15);
+      for(var i=0;i<it;i++){
+        //   console.log(playerlist[i].submission_time.toString());
+        var playeruser = {
+            
+            username: playerlist[i].username,
+            googleId: playerlist[i].googleId,
+            thumbnail: playerlist[i].thumbnail,
+            current_question: playerlist[i].current_question,
+            rank:i+1
+        }
+        userplayerlist.push(playeruser)
+      }
+    //   console.log(current_rank);
+      res.json(userplayerlist)
+  
+    }).catch(err=>{
+      console.log(err)
+      res.send("unable to fetch players list")
+    })
+}
+
 exports.playerList = function(req, res) {
     userplayer.find({})
     .then(playerlist=> {

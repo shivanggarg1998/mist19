@@ -30,6 +30,13 @@ export class AdminService {
     .map(res => res.json())
   }
 
+  fetchtopfifteen() {
+    let headers = new Headers()
+    headers.append('Content-Type','application/json')
+    return this.http.get('/topfifteen',{ headers : headers })
+    .map(res => res.json())
+  }
+
   submission(ans){
     let headers = new Headers()
     headers.append('Content-Type','application/json')

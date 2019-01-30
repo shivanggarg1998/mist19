@@ -20,6 +20,7 @@ export class QuestionPageComponent implements OnInit {
   question: any;
   ansForm : FormGroup;
   Math: Math;
+  playerList: any;
   alertstring: any;
   alertlength: number;
   answer: any;
@@ -52,7 +53,23 @@ export class QuestionPageComponent implements OnInit {
     this.ansForm = this.formBuilder.group({
       answer : ['', Validators.required]
     })
+    this.adminService.fetchtopfifteen().subscribe(playerList => {
+      this.playerList = playerList;
+      // this.playerRank= playerList.current_rank;
+      // for(var i=0;i<playerList.length;i++){
+      //   // console.log(playerList[i].googleId);
+      //   // console.log(this.playerId);
+      //   if(playerList[i].googleId==this.playerId){
+      //     this.playerRank=playerList[i].rank;
+      //   }
+      // }
+      // console.log(playerList)
 
+    },
+    err => {
+      console.log(err)
+      return false
+    })
   }
   ansSubmission(form: any){
     const alertmessages:string[]= new Array("Tumse na ho payega","Error 404 Brain not found","My Granny can do better","Not even close","Nothing") 

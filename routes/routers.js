@@ -16,6 +16,9 @@ module.exports = function(app) {
     app.route('/scoreboard')
         .get(isLoggedIn,controller.playerList);
 
+    app.route('/topfifteen')
+        .get(isLoggedIn,controller.topFifteen);
+
     };
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated()) {

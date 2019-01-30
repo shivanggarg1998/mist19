@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
         // res.send('hi');
     }
     else{
-        res.render('login', { user: req.user });
+        res.sendFile(__dirname+'/views/login.html', { user: req.user });
     }
 });
 app.use(express.static(path.join(__dirname, 'dist')));
