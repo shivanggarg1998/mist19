@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "runs": "ng build && node app.js",
+    "doruns": "pm2 stop all && cd mist19 && git pull && ng build && pm2 start app.js && cd..",
     "start": "node app.js",
     "build": "ng build",
     "test": "ng test",

@@ -40,6 +40,9 @@ passport.use(
                     done(null, newUser);
                 });
             }
-        });
+        }).catch(err=>{
+            console.log(err)
+            res.send('unable to fetch player')
+          });
     })
 );
