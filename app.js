@@ -21,6 +21,7 @@ app.use(cookieSession({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // initialize passport
+require('./routes/auth-routes.js')(app, passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -31,7 +32,7 @@ mongoose.connect(keys.mongodb.dbURI, () => {
 });
 
 // set up routes
-app.use('/auth', authRoutes);
+// app.use('/auth', authRoutes);
 
 // create home route
 app.get('/', (req, res) => {

@@ -9,6 +9,7 @@ import { QuestionPageComponent } from './question-page/question-page.component';
 import { AdminaddquestionComponent } from './adminaddquestion/adminaddquestion.component';
 import { AdminService} from './admin.service';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+// import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 const appRoutes: Routes = [
   { path:'question-page', component : QuestionPageComponent },
   { path: 'admin/addQuestion', component: AdminaddquestionComponent},
@@ -29,7 +30,9 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AdminService],
+  providers: [AdminService,
+    // {provide: LocationStrategy, useClass: HashLocationStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
