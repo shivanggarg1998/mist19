@@ -17,14 +17,14 @@ app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
     keys: [keys.session.cookieKey]
 }));
-
+require('./config/passport-setup')(passport);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // initialize passport
-require('./routes/auth-routes.js')(app, passport);
+
 app.use(passport.initialize());
 app.use(passport.session());
-
+require('./routes/auth-routes.js')(app, passport);
 
 // connect to mongodb
 mongoose.connect(keys.mongodb.dbURI, () => {
