@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const questionSchema = new Schema({
     question_body: String,
+    url: String,
     answer: String,
     question_number: Number
 });

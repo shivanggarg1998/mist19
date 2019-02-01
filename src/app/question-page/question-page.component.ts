@@ -18,6 +18,7 @@ import {Http, Response, RequestOptions, Headers} from '@angular/http';
 export class QuestionPageComponent implements OnInit {
   player: any;
   question: any;
+  url: any;
   ansForm : FormGroup;
   Math: Math;
   playerList: any;

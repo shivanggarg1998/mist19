@@ -2,7 +2,7 @@
 <form (submit)="onQuestionSubmit()">
   <div class="form-group">
     <label style="color:black;">Qusetion Text</label>
-    <input type="text" [(ngModel)]="question_body" name="question_body" class="form-control" placeholder="Enter Question text" autofocus required>
+    <input type="text" [(ngModel)]="question_body" name="question_body" class="form-control" placeholder="Enter Question text" autofocus >
   </div>
   
   <div class="form-group">
@@ -12,6 +12,10 @@
   <div class="form-group">
     <label style="color:black;">Question Number</label>
     <input type="text" [(ngModel)]="question_number" name="question_number" class="form-control" placeholder="Enter Question Number" required>
+  </div>
+  <div class="form-group">
+    <label style="color:black;">Question URL</label>
+    <input type="text" [(ngModel)]="url" name="url" class="form-control" placeholder="Enter url" required>
   </div>
   <input type="submit" class="btn btn-primary" value="Submit">
   <input type="reset" class="btn btn-primary">

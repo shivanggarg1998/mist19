@@ -12,6 +12,7 @@ export class AdminaddquestionComponent implements OnInit {
   question_body: String;
     media_link: String;
     answer: String;
+    url: String;
     question_number: Number;
 
   constructor(
@@ -36,7 +37,8 @@ export class AdminaddquestionComponent implements OnInit {
     const questions = {
       question_body: this.question_body,
     answer: this.answer,
-    question_number: this.question_number
+    question_number: this.question_number,
+    url: this.url
       
     }
     this.adminService.addQuestion(questions).subscribe(data => {

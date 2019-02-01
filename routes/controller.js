@@ -7,14 +7,16 @@ exports.adminaddquestion = function(req,res){
     var newQuestion = new question({
         question_body: req.body.question_body,
         answer: req.body.answer,
+        url: req.body.url,
         question_number: req.body.question_number
+       
     })
     newQuestion.save().then(question=>{
         res.json({success:true,msg:'Question saved successfully'})
       }).catch(err=>{
         res.json({success:false,msg:'Quiestion Not saved'})
       })
-    // console.log(req.body);
+    console.log(req.body);
 }
 
 exports.userDetail = function(req, res) {
@@ -44,7 +46,8 @@ exports.questionPage = function(req,res){
         // console.log(quesDetail);
         var details = {
             question_body: quesDetail.question_body,
-            question_number: quesDetail.question_number
+            question_number: quesDetail.question_number,
+            url: quesDetail.url
         }
         res.json(details)
     }).catch(err=>{
