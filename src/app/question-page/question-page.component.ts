@@ -73,7 +73,7 @@ export class QuestionPageComponent implements OnInit {
     })
   }
   ansSubmission(form: any){
-    const alertmessages:string[]= new Array("Tumse na ho payega","Error 404 Brain not found","My Granny can do better","Not even close","Nothing") 
+    const alertmessages:string[]= new Array("Tumse na ho payega","Error 404 Brain not found","My Granny can do better","Not even close","You should just give up","na munnah na","Nothing") 
     this.alertlength= Math.abs(Math.floor(Math.random()*(alertmessages.length-1)))%alertmessages.length;
     console.log(this.alertlength);
     this.alertstring=alertmessages[this.alertlength];
