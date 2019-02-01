@@ -6,7 +6,7 @@ module.exports = {
             clientSecret: '_hJ6pIsBdhkMYs2zXpRWlF2t'
         },
         mongodb: {
-            dbURI: 'mongodb://mongodb://68.183.89.56:27017/mist-19'
+            dbURI: 'mongodb://68.183.89.56:27017/mist-19'
         },
         session: {
             cookieKey: 'mistisawesome'
