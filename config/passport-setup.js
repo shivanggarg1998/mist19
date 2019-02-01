@@ -10,7 +10,10 @@ module.exports = function(passport) {
     passport.deserializeUser((id, done) => {
         User.findById(id).then((user) => {
             done(null, user);
-        });
+        }).catch(err=>{
+            console.log(err)
+            res.send('unable to fetch player')
+          });;
     });
     
     passport.use(
