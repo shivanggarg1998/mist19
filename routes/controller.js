@@ -130,7 +130,7 @@ exports.Submit = function(req,res){
     .then(player=>{
         if(req.user.current_question!=-1){
             question.findOne({question_number: req.user.current_question}).then((quesDetail)=>{
-                if(req.body.answer==quesDetail.answer){
+                if(req.body.answer.toLowerCase()==quesDetail.answer.toLowerCase()){
                     player.current_question++;
                     player.submission_time=Date.now()
                     player.activity.push({timestamp:Date.now()})
