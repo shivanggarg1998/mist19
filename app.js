@@ -35,21 +35,31 @@ mongoose.connect(keys.mongodb.dbURI, () => {
 // app.use('/auth', authRoutes);
 
 // create home route
+// app.get('/', (req, res) => {
+//     if(req.user){
+//         // console.log(req.user.current_question);
+//         res.redirect('/question-page');
+//         // res.send('hi');
+//     }
+//     else{
+//         res.sendFile(__dirname+'/views/login.html', { user: req.user });
+//     }
+// });
 app.get('/', (req, res) => {
-    if(req.user){
+    // if(req.user){
         // console.log(req.user.current_question);
-        res.redirect('/question-page');
+        res.sendFile(__dirname+'/views/coming.html');
         // res.send('hi');
-    }
-    else{
-        res.sendFile(__dirname+'/views/login.html', { user: req.user });
-    }
+    // }
+    // else{
+    //     res.sendFile(__dirname+'/views/login.html', { user: req.user });
+    // }
 });
 app.use(express.static(path.join(__dirname, 'dist')));
 require('./routes/routers.js')(app);
 app.listen(port, () => {
     console.log('app now listening for requests on port 3000');
 });
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname+'/dist/index.html'));
-    });
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname+'/dist/index.html'));
+//     });
