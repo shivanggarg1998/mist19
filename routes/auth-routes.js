@@ -11,9 +11,10 @@ module.exports = function(app, passport) {
     });
     
     // auth with google+
-    app.get('/auth/google', passport.authenticate('google', {
-        scope: ['profile']
-    }));
+    app.get('/auth/google',
+  passport.authenticate('google', { scope: 
+      [ 'profile','email' ] }
+));
     
     // callback route for google to redirect to
     // hand control to passport to use code to grab profile info

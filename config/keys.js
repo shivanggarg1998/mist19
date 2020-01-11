@@ -2,8 +2,8 @@
 
 module.exports = {
         google: {
-            clientID: '478659425994-6n1h9rqijvakt11qr7ve244s0v6vm4th.apps.googleusercontent.com',
-            clientSecret: '_hJ6pIsBdhkMYs2zXpRWlF2t'
+            clientID: '369743875191-e2sa0o81emuj6s1cf47qqpeqkpuktra8.apps.googleusercontent.com',
+            clientSecret: 's1Zm7pTLytrDoVBlUkfuoukC'
         },
         mongodb: {
             dbURI: 'mongodb://vegeta1509:Mist12I@ds113445.mlab.com:13445/mist-19'
