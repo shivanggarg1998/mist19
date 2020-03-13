@@ -51,10 +51,11 @@
         <thead>
           <tr>
             <th style="width: 5%"></th>
-            <th style="width: 12%"><strong>Rank</strong></th>
-            <th style="width: 17%"><strong>Avatar</strong></th>
-            <th style="width: 22%"><strong>Name</strong></th>
-            <th style="width: 10%"><strong>Current Question</strong></th>
+            <th style="width: 9%"><strong>Rank</strong></th>
+            <th style="width: 12%"><strong>Avatar</strong></th>
+            <th style="width: 20%"><strong>Name</strong></th>
+            <th style="width: 8%"><strong>Current Question</strong></th>
+            <th style="width: 12%"><strong>Submission Time</strong></th>
             <th style="width: 0.5%">      </th>
           </tr>
         </thead>
@@ -65,6 +66,7 @@
               <td><img src="{{player.thumbnail}}" alt="User Profile"  width="40" height="40" hspace="5"> </td>
               <td>{{player.username}}</td>
               <td >{{player.current_question}}</td>
+              <td >{{player.submission_time}}</td>
             </tr>
         </tbody>
       </table>
