@@ -20,7 +20,7 @@ module.exports = function(app, passport) {
     // hand control to passport to use code to grab profile info
     app.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
         // res.send(req.user);
-        console.log(req.user);
+        //console.log(req.user);
         res.redirect('/question-page');
     });
 }

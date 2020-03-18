@@ -17,7 +17,7 @@ exports.adminaddquestion = function (req, res) {
   }).catch(err => {
     res.json({ success: false, msg: 'Quiestion Not saved' })
   })
-  console.log(req.body);
+  //console.log(req.body);
 }
 
 exports.userDetail = function (req, res) {
@@ -44,7 +44,7 @@ exports.userDetail = function (req, res) {
 
 exports.questionPage = function (req, res) {
   question.findOne({ question_number: req.user.current_question }).then((quesDetail) => {
-    console.log(quesDetail);
+    //console.log(quesDetail);
     var details = {
       question_body: quesDetail.question_body,
       question_number: quesDetail.question_number,
