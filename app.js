@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const path = require('path');
 const app = express();
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 80;
 const rateLimit = require("express-rate-limit");
  
 
