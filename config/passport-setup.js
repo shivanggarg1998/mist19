@@ -30,11 +30,11 @@ module.exports = function(passport) {
                     // console.log('token start');
                     // console.log(accessToken);
                     // console.log('token end');
-                    console.log('user is: ', currentUser);
+                    //console.log('user is: ', currentUser);
                     done(null, currentUser);
                 } else {
                     // if not, create user in our db
-                    console.log(profile);
+                    //console.log(profile);
                     new User({
                         googleId: profile.id,
                         username: profile.displayName,

@@ -10,9 +10,9 @@ const path = require('path');
 const app = express();
 var port = process.env.PORT || 80;
 const rateLimit = require("express-rate-limit");
- 
 
- 
+
+
 //  apply to all requests
 
 // set view engine
@@ -24,7 +24,7 @@ app.use(cookieSession({
     keys: [keys.session.cookieKey]
 }));
 app.enable("trust proxy"); // only if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
- 
+
 
 require('./config/passport-setup')(passport);
 app.use(bodyParser.json());
@@ -45,24 +45,24 @@ mongoose.connect(keys.mongodb.dbURI, () => {
 
 // create home route
 app.get('/', (req, res) => {
-    if(req.user){
+    if (req.user) {
         // console.log(req.user.current_question);
         res.redirect('/question-page');
         // res.send('hi');
     }
-    else{
-        res.sendFile(__dirname+'/views/login.html', { user: req.user });
+    else {
+        res.sendFile(__dirname + '/views/login.html', { user: req.user });
     }
 });
 // app.get('/', (req, res) => {
-    // if(req.user){
-        // console.log(req.user.current_question);
-        // res.sendFile(__dirname+'/views/coming.html');
-        // res.send('hi');
-    // }
-    // else{
-    //     res.sendFile(__dirname+'/views/login.html', { user: req.user });
-    // }
+// if(req.user){
+// console.log(req.user.current_question);
+// res.sendFile(__dirname+'/views/coming.html');
+// res.send('hi');
+// }
+// else{
+//     res.sendFile(__dirname+'/views/login.html', { user: req.user });
+// }
 // });
 app.use(express.static(path.join(__dirname, 'dist')));
 require('./routes/routers.js')(app);
@@ -70,5 +70,5 @@ app.listen(port, () => {
     console.log('app now listening for requests on port 3000');
 });
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname+'/dist/index.html'));
-    });
+    res.sendFile(path.join(__dirname + '/dist/index.html'));
+});
