@@ -42,7 +42,9 @@ mongoose.connect(keys.mongodb.dbURI, () => {
 
 // set up routes
 // app.use('/auth', authRoutes);
+var dir = path.join(__dirname, 'music');
 
+app.use('/music', express.static(dir));
 // create home route
 app.get('/', (req, res) => {
     if (req.user) {
@@ -52,6 +54,7 @@ app.get('/', (req, res) => {
     }
     else {
         res.sendFile(__dirname + '/views/login.html', { user: req.user });
+        //res.sendFile(__dirname + '/music/home.mp3');
     }
 });
 // app.get('/', (req, res) => {

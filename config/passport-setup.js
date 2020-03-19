@@ -2,20 +2,20 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const keys = require('./keys');
 const User = require('../models/user-model');
 
-module.exports = function(passport) {
+module.exports = function (passport) {
     passport.serializeUser((user, done) => {
         done(null, user.id);
     });
-    
+
     passport.deserializeUser((id, done) => {
         User.findById(id).then((user) => {
             done(null, user);
-        }).catch(err=>{
+        }).catch(err => {
             console.log(err)
             res.send('unable to fetch player')
-          });;
+        });;
     });
-    
+
     passport.use(
         new GoogleStrategy({
             // options for google strategy
@@ -24,8 +24,8 @@ module.exports = function(passport) {
             callbackURL: '/auth/google/redirect'
         }, (accessToken, refreshToken, profile, done) => {
             // check if user already exists in our own db
-            User.findOne({googleId: profile.id}).then((currentUser) => {
-                if(currentUser){
+            User.findOne({ googleId: profile.id }).then((currentUser) => {
+                if (currentUser) {
                     // already have this user
                     // console.log('token start');
                     // console.log(accessToken);
@@ -44,11 +44,11 @@ module.exports = function(passport) {
                         done(null, newUser);
                     });
                 }
-            }).catch(err=>{
+            }).catch(err => {
                 console.log(err)
                 res.send('unable to fetch player')
-              });
+            });
         })
     );
-    
+
 }

@@ -5,53 +5,53 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AdminService {
 
-  constructor(private http : Http) { }
+  constructor(private http: Http) { }
 
-  fetchUser(){
+  fetchUser() {
     let headers = new Headers();
-    headers.append('Content-Type','application/json');
-    return this.http.get('userdetail',{headers : headers})
-    .map(res => res.json());
+    headers.append('Content-Type', 'application/json');
+    return this.http.get('userdetail', { headers: headers })
+      .map(res => res.json());
   }
 
-  fetchQuestion(){
+  fetchQuestion() {
     let headers = new Headers()
-  //  let params = new URLSearchParams();
-  //  params.set('id',id.toString())
-    headers.append('Content-Type','application/json')
+    //  let params = new URLSearchParams();
+    //  params.set('id',id.toString())
+    headers.append('Content-Type', 'application/json')
     return this.http.get('/questionpage')
-    .map(res => res.json())
+      .map(res => res.json())
   }
 
   fetchPlayers() {
     let headers = new Headers()
-    headers.append('Content-Type','application/json')
-    return this.http.get('/scoreboard',{ headers : headers })
-    .map(res => res.json())
+    headers.append('Content-Type', 'application/json')
+    return this.http.get('/scoreboard', { headers: headers })
+      .map(res => res.json())
   }
 
   fetchtopfifteen() {
     let headers = new Headers()
-    headers.append('Content-Type','application/json')
-    return this.http.get('/topfifteen',{ headers : headers })
-    .map(res => res.json())
+    headers.append('Content-Type', 'application/json')
+    return this.http.get('/topfifteen', { headers: headers })
+      .map(res => res.json())
   }
 
-  submission(ans){
+  submission(ans) {
     let headers = new Headers()
-    headers.append('Content-Type','application/json')
+    headers.append('Content-Type', 'application/json')
     let body = JSON.stringify(ans);
-    return this.http.post('/submit',body,{headers : headers})
-    .map(res => res.json())
+    return this.http.post('/submit', body, { headers: headers })
+      .map(res => res.json())
   }
 
-  addQuestion(questions){
+  addQuestion(questions) {
     let headers = new Headers();
-    headers.append('Content-Type','application/json');
+    headers.append('Content-Type', 'application/json');
     let body = JSON.stringify(questions);
     console.log(body);
-    return this.http.post('/admin/addQuestions/', body, {headers: headers} )
-    .map(res => res.json());
+    return this.http.post('/admin/addQuestions/', body, { headers: headers })
+      .map(res => res.json());
   }
 
 }

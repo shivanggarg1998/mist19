@@ -6,12 +6,14 @@ const userSchema = new Schema({
     googleId: String,
     thumbnail: String,
     current_question: { type: Number, default: 0 },
-    submission_time: { type: Date,default: Date.now() },
+    submission_time: { type: Date, default: Date.now() },
     isNotBan: { type: Boolean, default: true },
     isAdmin: { type: Boolean, default: false },
-    activity: [{timestamp:{
-        type: Date, default:Date.now()
-    }}]
+    activity: [{
+        timestamp: {
+            type: Date, default: Date.now()
+        }
+    }]
 });
 
 const User = mongoose.model('user', userSchema);
