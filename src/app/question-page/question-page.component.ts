@@ -49,6 +49,9 @@ export class QuestionPageComponent implements OnInit {
       if (Question.question_body != '') {
         console.log(Question.question_body);
       }
+      if (Question.question_number == 17) {
+        console.log('%c ', 'font-size:400px; background:url(http://mathcenter.oxford.emory.edu/site/math125/transpositionCiphers/486-00.jpg) no-repeat;');
+      }
     },
       err => {
         console.log(err);
