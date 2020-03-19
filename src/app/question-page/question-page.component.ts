@@ -47,7 +47,7 @@ export class QuestionPageComponent implements OnInit {
     this.adminService.fetchQuestion().subscribe(Question => {
       this.question = Question;
       if (Question.question_body != '') {
-        console.log(Question.question_body);
+        console.log('%c ' + Question.question_body, 'font-size:30px');
       }
       if (Question.question_number == 17) {
         console.log('%c ', 'font-size:400px; background:url(http://mathcenter.oxford.emory.edu/site/math125/transpositionCiphers/486-00.jpg) no-repeat;');
