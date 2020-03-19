@@ -113,7 +113,7 @@ exports.playerList = function (req, res) {
             thumbnail: playerlist[i].thumbnail,
             current_question: playerlist[i].current_question,
             rank: i + 1,
-            submission_time : moment(playerlist[i].submission_time).format("MMMM Do YYYY, HH:mm:ss")
+            submission_time : moment(playerlist[i].submission_time).utcOffset("+05:30").format("MMMM Do YYYY, HH:mm:ss")
           }
           userplayerlist.push(playeruser)
         }
