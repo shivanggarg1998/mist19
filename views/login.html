@@ -10,22 +10,17 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <iframe src="https://res.cloudinary.com/drmpbjtlk/video/upload/v1584732103/home_wbdxvq.mp3" allow="autoplay"
-        style="display:none" id="iframeAudio">
-    </iframe>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113721138-2"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'UA-113721138-2');
     </script>
 
     <!-- Custom -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-
     <style>
         html {
             height: 100%;
@@ -105,6 +100,11 @@
             text-align: center;
         }
 
+        #inner {
+            width: 100%;
+            margin: 50% auto auto auto;
+        }
+
         .omb_login .omb_loginForm .input-group.i {
             width: 2em;
         }
@@ -123,6 +123,8 @@
                 text-align: right;
                 margin-top: 10px;
             }
+
+
         }
 
         /* .fa {
@@ -147,6 +149,11 @@
         @media (max-width: 990px) {
             body {
                 background-image: url("https://gdurl.com/t62Y");
+            }
+
+            #inner {
+                width: 100%;
+                margin: 200% auto auto auto;
             }
 
             /* .google-btn{
@@ -195,8 +202,10 @@
         </div>
 
 
-
+        <audio id="inner" src="https://res.cloudinary.com/drmpbjtlk/video/upload/v1584732103/home_wbdxvq.mp3"
+            controls></audio>
     </div>
+
 </body>
 
 </html>

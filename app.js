@@ -42,6 +42,9 @@ mongoose.connect(keys.mongodb.dbURI, () => {
 
 // set up routes
 // app.use('/auth', authRoutes);
+var dir = path.join(__dirname, 'music');
+
+app.use('/music', express.static(dir));
 // create home route
 app.get('/', (req, res) => {
     if (req.user) {
