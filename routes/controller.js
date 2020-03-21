@@ -100,7 +100,7 @@ exports.playerList = function (req, res) {
         return new Date(a.submission_time.toString()) - new Date(b.submission_time.toString());
       });
       var current_rank;
-      question.findOneAndUpdate({ question_number: 28 }, { answer: playerlist[0].username }, () => {
+      question.findOneAndUpdate({ question_number: 26 }, { answer: playerlist[0].username }, () => {
         for (var i = 0; i < playerlist.length; i++) {
           //   console.log(playerlist[i].submission_time.toString());
           if (playerlist[i].googleId == req.user.googleId) {
