@@ -80,7 +80,7 @@ export class QuestionPageComponent implements OnInit {
       })
   }
   ansSubmission(form: any) {
-    const alertmessages: string[] = new Array("Tumne toh waqt Badal diya, jazbat badal diya, zindagi Badal Di", "Don't feel sad, don't feel blue, Frankenstein was just like you", "You proved that evolution can go in reverse", "Lucky for you that mirrors can't laugh", "Okay boomer", "No offense, but that was just plain stupidity", "Kaha se aate hai yeh log?")
+    const alertmessages: string[] = new Array("Tumne toh waqt Badal diya, jazbat badal diya, zindagi Badal Di", "Don't feel sad, don't feel blue, Frankenstein was just like you", "You proved that evolution can go in reverse", "Lucky for you that mirrors can't laugh", "Okay boomer", "No offense, but that was just plain stupidity", "Kaha se aate hai yeh log?", "Tumse na ho payega", "Error 404 Brain not found", "My Granny can do better", "Not even close", "You should just give up", "na munnah na", "Nothing")
     this.alertlength = Math.abs(Math.floor(Math.random() * (alertmessages.length - 1))) % alertmessages.length;
     console.log(this.alertlength);
     this.alertstring = alertmessages[this.alertlength];
@@ -104,6 +104,6 @@ export class QuestionPageComponent implements OnInit {
   myFunction() {
     var x = document.getElementById("snackbar");
     x.className = "show";
-    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+    setTimeout(function () { x.className = x.className.replace("show", ""); }, 4500);
   }
 }
