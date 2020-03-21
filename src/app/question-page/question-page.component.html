@@ -37,7 +37,7 @@
 
         <div class="card-body">
           <h5 class="card-title">Question no. {{question?.question_number}}</h5>
-          <audio *ngIf="question.question_number==32" controls>
+          <audio *ngIf="question.question_number==30" controls>
             <source [src]="question.question_body" type="audio/mpeg">
           </audio>
           <form [formGroup]="ansForm" novalidate (ngSubmit)="ansSubmission(ansForm.value)">
